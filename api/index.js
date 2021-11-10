@@ -18,11 +18,29 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const { conn, Country } = require('./src/db.js');
+const axios = require('axios')
+
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(3001, async () => {
+    let paises = await axios('https://restcountries.com/v3/all')
+    paises.data.forEach(async (e) => {
+      Country.create({name: e.translations.spa.official,
+        id:e.cca3,
+        continent: e.region,
+        capital: e.capital,
+        area: e.area,
+        population: e.population,
+        sub_region:e.subregion,
+        flag:e.flags
+      })
+      
+    });
+
+
+
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
