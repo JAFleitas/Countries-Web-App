@@ -27,7 +27,7 @@ conn.sync({ force: true }).then(() => {
   server.listen(3001, async () => {
     let paises = await axios('https://restcountries.com/v3/all')
     paises.data.forEach(async (e) => {
-      Country.create({name: e.translations.spa.official,
+      Country.create({name: e.translations.spa.common,
         id:e.cca3,
         continent: e.region,
         capital: e.capital,

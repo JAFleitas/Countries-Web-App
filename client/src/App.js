@@ -1,9 +1,14 @@
 import './App.css';
+import Container from './Components/ContainerFilter/Container';
+import Countries from './Components/Countries/Countries'
+import NavBar from './Components/NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <NavBar/>
+      <Countries />
+      <Container />
     </div>
   );
 }

@@ -15,14 +15,14 @@ countries.get('/countries', async (req, res)=>{
                 where: {
                     name :{[Op.iLike]:`%${name}%`}
                 },
-                attributes: ['name', 'id', 'continent', 'flag']
+                attributes: ['name', 'id', 'continent', 'flag', 'population']
             })
-            paisQuery==false? res.status(404).send('Pais no encontrado'):res.json(paisQuery)  
+            paisQuery==false? res.status(401).send('Pais no encontrado'):res.json(paisQuery)  
                    
 
         }else{
             const paises = await Country.findAll({
-                attributes: ['name', 'id', 'continent', 'flag']
+                attributes: ['name', 'id', 'continent', 'flag', 'population']
             })
             res.json(paises)
         }
