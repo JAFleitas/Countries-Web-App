@@ -1,0 +1,19 @@
+.country {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    align-items:baseline;
+    border-style: double;
+    flex-flow: wrap;
+    color: white;
+    border-color: goldenrod;
+    border-style: groove;
+    justify-content: center;
+    
+}
+
+
+.country img{
+    width: 40px;
+    height: 30px;
+}

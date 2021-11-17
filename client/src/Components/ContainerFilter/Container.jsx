@@ -2,7 +2,7 @@ import React from "react";
 import Filters from "../Filters/Filters";
 import { useDispatch } from "react-redux";
 
-import { arrayPoblacion } from "./utils";
+import { arrayAlfabeto, arrayPoblacion } from "./utils";
 
 //import { cambio_desc_asc, order_ascendente, order_descendente } from "../../actions";
 
@@ -29,7 +29,9 @@ const Container = () =>{
     
     return (
         <div>
-             <Filters name = 'poblacion' arrayFunction= {arrayPoblacion} />
+            <h4> Ordenar por: </h4>
+             <Filters name = 'Poblacion' arrayFunction= {arrayPoblacion} />
+             <Filters name = 'Alfabeto' arrayFunction= {arrayAlfabeto} />
 
 
         </div>

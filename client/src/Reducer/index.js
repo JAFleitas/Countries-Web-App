@@ -1,10 +1,10 @@
-import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, NAME, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_DESC_ASC } from '../actions'
+import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, NAME, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA } from '../actions'
 
 const initialState = {
     countries:[],
     countryDetail: {},
     name:'',
-    filtroPob: null
+    filtro: null
 }
 
 const rootReducer= (state=initialState,{type , payload})=>{
@@ -36,10 +36,21 @@ const rootReducer= (state=initialState,{type , payload})=>{
                 ...state,
                 countries: state.countries.sort((a, b) => b.population - a.population)
             }
-        case CAMBIO_DESC_ASC:
+        case CAMBIO_FILTRO:
             return {
                 ...state,
-                filtroPob: state.filtropob===payload ? null:payload
+                filtro: state.filtro===payload ? null:payload
+            }
+        case ORDER_AZ : 
+            return {
+                ...state,
+                countries : state.countries.sort((a,b) => a.name >= b.name ? 1 : -1)
+                
+            }
+        case ORDER_ZA : 
+            return {
+                ...state,
+                countries : state.countries.sort((a,b) => a.name >= b.name ? 1 : -1).reverse()
             }
         default:
             return state

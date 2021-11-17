@@ -1,0 +1,23 @@
+.countries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-template-rows: repeat(5, 1fr);
+    background-image: url('./planeta.jpeg');
+    background-repeat: no-repeat;
+    background-position:inherit;
+    position:absolute;
+    background-size: cover;
+    height: 100%;
+}
+
+.boton{
+    
+    grid-column: 2/4;
+    grid-row: 5;
+    
+}
+
+.boton button{
+    background-color: goldenrod;
+}

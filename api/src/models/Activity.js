@@ -13,8 +13,9 @@ module.exports = (sequelize) => {
         },
         difficulty:
         {
-            type: DataTypes.DECIMAL,
-            allowNull: false
+            type: DataTypes.STRING,
+            
+            
         },
         season: 
         {

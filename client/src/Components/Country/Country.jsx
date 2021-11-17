@@ -1,5 +1,5 @@
 import React from "react";
-import './Country.css'
+import style from './Country.module.css'
 
 
 
@@ -9,10 +9,10 @@ const Country = props =>{
     const { flag, name, continent } = props
 
     return (
-        <div>
+        <div className={style.country}>
             <img src={flag} alt='Bandera' />
-            <h2>nombre: {name}</h2>
-            <h4>continente: {continent}</h4>
+            <h3>Nombre: {name}</h3>
+            <h4>Continente: {continent}</h4>
         </div>
     )
 }

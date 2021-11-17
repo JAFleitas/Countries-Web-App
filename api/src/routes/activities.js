@@ -40,6 +40,7 @@ activities.post('/activity', async (req, res)=>{
         res.send('Actividad cargada con exito!')
     } catch (e) {
         res.status(404).send(e)
+        console.log(e)
     }
 
 

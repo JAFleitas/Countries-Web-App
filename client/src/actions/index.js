@@ -6,7 +6,9 @@ export const GET_COUNTRIES_DETAIL = 'GET_COUNTRIES_DETAIL';
 export const NAME = 'NAME'
 export const ORDER_ASCENDENTE = 'ORDER_ASCENDENTE'
 export const ORDER_DESCENDENTE = 'ORDER_DESCENDENTE'
-export const CAMBIO_DESC_ASC = 'CAMBIO_DESC_ASC'
+export const CAMBIO_FILTRO= 'CAMBIO_FILTRO'
+export const ORDER_AZ = 'ORDER_AZ'
+export const ORDER_ZA = 'ORDER_ZA'
 
 export const get_countries =  (name) =>{
     return async (dispatch)=>{
@@ -66,9 +68,21 @@ export const order_descendente = () =>{
         
     }
 }
-export const cambio_desc_asc = payload =>{
+export const cambioFiltro = payload =>{
     return {
-        type : CAMBIO_DESC_ASC,
+        type : CAMBIO_FILTRO,
         payload
+    }
+}
+
+export const order_A_Z = () => {
+    return {
+        type : ORDER_AZ
+    }
+}
+
+export const order_Z_A = () => {
+    return {
+        type : ORDER_ZA
     }
 }

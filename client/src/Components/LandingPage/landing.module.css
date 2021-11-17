@@ -1,0 +1,38 @@
+.landing{
+    display: flex;
+    width: 100%;
+    height: 100%;;
+    background-image: url(planet.gif);
+    background-repeat: no-repeat;
+    position:absolute;
+    background-size: cover;
+    color: goldenrod;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background-position: center;
+    
+}
+
+ 
+.landing button {
+    font-size: xx-large;
+    background-color: rgba(252, 218, 25, 0.86);
+    color: black;
+    border-radius: 18px;
+    border: none;
+    font-family:inherit;
+    width: min-content;
+    height:min-content;
+    
+}
+button:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color:  rgba(252, 218, 25, 1);
+}
+.landing h1{
+    font-size: 60px;
+    padding: 30px;
+
+
+}

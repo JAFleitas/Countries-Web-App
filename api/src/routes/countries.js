@@ -38,7 +38,7 @@ countries.get('/countries', async (req, res)=>{
 countries.get('/countries/:id', async (req, res)=>{
     try {
         const pais = await Country.findByPk(req.params.id,{
-            attributes:['id','capital','sub_region','area', 'population'],
+            attributes:['id','capital','sub_region','area', 'population','name','continent'],
             include: Activity
         });
     

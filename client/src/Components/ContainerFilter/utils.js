@@ -1,13 +1,30 @@
-import { cambio_desc_asc, order_ascendente, order_descendente } from "../../actions";
-const descendente = (d)=>{
+import { cambioFiltro, order_ascendente, order_A_Z, order_descendente, order_Z_A } from "../../actions";
+const descendente = d => {
     // c.preventDefault()
     d(order_descendente())
-    d(cambio_desc_asc(true))
+    d(cambioFiltro(true))
 }
-const ascendente = (d)=>{
+const ascendente = d => {
     // c.preventDefault()
     d(order_ascendente()) 
-    d(cambio_desc_asc(false))
+    d(cambioFiltro(false))
 }
+
+const ordenar_A_Z = d =>{
+    d(order_A_Z())
+    d(cambioFiltro(true))
+}
+
+const ordenar_Z_A = d =>{
+    d(order_Z_A())
+    d(cambioFiltro(false))
+}
+
 export const arrayPoblacion = [{name : 'Orden Descendente', function: descendente},
-    {name :'Orden Ascendente', function: ascendente}]
+ {name :'Orden Ascendente', function: ascendente}]
+
+export const arrayAlfabeto = [{name : 'Orden A-Z', function: ordenar_A_Z},
+ {name: 'Orden Z-A', function: ordenar_Z_A} ]
+
+export const arrayContinent =[]
+
