@@ -17,7 +17,7 @@ const Filters = props => {
         <div>
             <button onClick={e => handleChange(e)}> {name} </button>
             {value ? arrayFunction.map(e =>{
-                return <button onClick={() =>e.function(dispatch)} key={e.name} >{e.name}</button>
+                return <button onClick={() =>e.function(dispatch,e.c)} key={e.name} >{e.name}</button>
             }): null}
         </div>
         

@@ -1,37 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filters from "../Filters/Filters";
+
+import { arrayAlfabeto, arrayPoblacion, arrayContinent} from "./utils";
+import style from './Container.module.css'
 import { useDispatch } from "react-redux";
+import { get_countries } from "../../actions";
 
-import { arrayAlfabeto, arrayPoblacion } from "./utils";
-
-//import { cambio_desc_asc, order_ascendente, order_descendente } from "../../actions";
 
 
 
 const Container = () =>{
-    //const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const [limpiar, setLimpiar] = useState(false)
+    useEffect(()=> console.log('Me limpie'),[limpiar])
 
-
-/*     const descendente = ()=>{
-        // c.preventDefault()
-        dispatch(order_descendente())
-        dispatch(cambio_desc_asc(true))
-    }
-    const ascendente = ()=>{
-        // c.preventDefault()
-        dispatch(order_ascendente()) 
-        dispatch(cambio_desc_asc(false))
-    }
-    const arrayPoblacion = [{name : 'Orden Descendente', function: descendente},
-    {name :'Orden Ascendente', function: ascendente}] */
-
-    
     
     return (
-        <div>
+        <div className={style.container}>
             <h4> Ordenar por: </h4>
-             <Filters name = 'Poblacion' arrayFunction= {arrayPoblacion} />
-             <Filters name = 'Alfabeto' arrayFunction= {arrayAlfabeto} />
+            <Filters name = 'Poblacion' arrayFunction= {arrayPoblacion} />
+            <Filters name = 'Alfabeto' arrayFunction= {arrayAlfabeto} />
+            <Filters name = 'Continente' arrayFunction= {arrayContinent} />
+            <button onClick={()=> {
+                setLimpiar(limpiar?false:true)
+                dispatch(get_countries())
+            
+                
+            }}> Limpiar </button>
 
 
         </div>

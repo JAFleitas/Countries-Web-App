@@ -1,0 +1,19 @@
+.loading{
+    display: flex;
+    background-image: url('Cargando.gif');
+    height: 539px;
+    width: 759px;
+    align-items: flex-end;
+    justify-content: center;
+    color: goldenrod;
+    
+    
+}
+.container {
+    display: flex;
+    background-color: #073d57;
+    
+    justify-content: center;
+    height: 720px;
+  
+}

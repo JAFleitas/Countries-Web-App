@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Country from "../Country/Country";
 import { useSelector, useDispatch } from 'react-redux'
-import { get_countries } from "../../actions";
+import { get_countries, loadingPage} from "../../actions";
 import style from './Countries.module.css'
+import Container from "../ContainerFilter/Container";
+import NavBar from "../NavBar/NavBar";
+import Loading from "../loading/Loading";
+
 
 const Countries = () =>{
 
@@ -14,12 +18,14 @@ const Countries = () =>{
 
     useEffect(() => {
         dispatch(get_countries(namePais))
+     
     },[namePais])
 
     useEffect( () => {
         console.log('cambio el estado')
     },[filter])
-   
+
+   //PAGINADO
     const paisesPorPag = 10
     const [ numDePag, setNumDePag ] = useState(1)
     const inicio = ( numDePag * paisesPorPag ) - paisesPorPag
@@ -31,6 +37,7 @@ const Countries = () =>{
         flag={c.flag[1]} 
         continent= {c.continent} 
         key={c.id}
+        id={c.id}
     />)
 
     const previousPage = () =>{
@@ -57,16 +64,31 @@ const Countries = () =>{
     const paginado = createArr(cantDePag)
 
     console.log(paginado)
-
+    
+    const loading = useSelector(state => state.loading)
     return (
-        <div className={style.countries}>
-            { display }
-            <div className={style.boton}>
-            <button onClick={previousPage}>Anterior</button>
-            {paginado.map(e =>{
-                return <button onClick= {()=> buttonPage(e)}>{e}</button>
-            })}
-            <button onClick={nextPage}>Proximo</button>
+        <div>
+            <div className={style.container}>
+                {loading? (
+                    <div>
+                        <Loading/>
+                    </div>):
+                    (<div className={style.countries}>
+                        { display }
+                    </div>)}
+                
+                <div className={style.boton}>
+                    <button onClick={previousPage}>Anterior</button>
+                    {paginado.map(e =>{
+                        return <button onClick= {()=> buttonPage(e)}>{e}</button>
+                    })}
+                    <button onClick={nextPage}>Proximo</button>
+                </div>
+
+                <div className={style.nav}>
+                    <NavBar />
+                </div>
+                
             </div>
         </div>
     )

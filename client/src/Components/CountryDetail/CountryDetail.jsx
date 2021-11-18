@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from "react-router";
 import { get_countries_detail } from "../../actions";
 
-const CountryDetail = props =>{
-    const {ID} = props
+const CountryDetail = () =>{
+    const params = useParams()
     const dispatch = useDispatch()
     const info = useSelector(state => state.countryDetail)
     useEffect(()=>{
-        dispatch(get_countries_detail(ID))
+        dispatch(get_countries_detail(params.id))
     },[])
    
     const {id, name, continent, capital, sub_region, area, population, activities} = info
@@ -31,7 +32,7 @@ const CountryDetail = props =>{
 
 
                 <h2>Informacion: </h2>
-                <p>{name} esta ubicado en el continente {continent},mas concretamente en la sub-region {sub_region}, su capital es {capital}.
+                <p>{name} esta ubicado en el continente {continent}, más concretamente en la sub-region {sub_region}, su capital es {capital}.
                     {name} tiene una poblacion actual de {population} de personas y un area de {area} KM2
                 
                 </p>

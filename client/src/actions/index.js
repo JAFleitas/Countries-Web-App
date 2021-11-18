@@ -9,16 +9,21 @@ export const ORDER_DESCENDENTE = 'ORDER_DESCENDENTE'
 export const CAMBIO_FILTRO= 'CAMBIO_FILTRO'
 export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
+export const LOADING = 'LOADING'
+export const ORDER_CONTINENT = 'ORDER_CONTINENT'
 
 export const get_countries =  (name) =>{
     return async (dispatch)=>{
+        dispatch(loadingPage(true))
         const paises = name? await axios.get(`http://localhost:3001/countries?name=${name}`):await axios(`http://localhost:3001/countries`)
         
         dispatch( {
             type: GET_COUNTRIES,
             payload: paises.data 
         })
-    } 
+        dispatch(loadingPage(false))
+    }
+
 
     
 }
@@ -31,6 +36,7 @@ export const get_countries_detail =  (id) =>{
         type: GET_COUNTRIES_DETAIL,
         payload: pais.data
         })
+        dispatch(loadingPage(false))
         
     }
 
@@ -84,5 +90,20 @@ export const order_A_Z = () => {
 export const order_Z_A = () => {
     return {
         type : ORDER_ZA
+    }
+}
+
+export const order_continent = payload =>{
+    return {
+        type : ORDER_CONTINENT,
+        payload
+    }
+}
+
+
+export const loadingPage = payload=>{
+    return {
+        type: LOADING,
+        payload
     }
 }

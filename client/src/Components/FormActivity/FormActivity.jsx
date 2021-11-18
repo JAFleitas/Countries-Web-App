@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const Form = () =>{
     const [input, setInput] = useState({
@@ -29,6 +30,7 @@ const Form = () =>{
     })
 
     }
+    const navigate = useNavigate()
     const postActivity = async e =>{
         e.preventDefault()
        try{
@@ -39,7 +41,7 @@ const Form = () =>{
                 paises,
                 season})
         
-            return alert(res.data)
+            return alert(res.data) && navigate('/home')
         }catch(e){
             console.log(e)
         }

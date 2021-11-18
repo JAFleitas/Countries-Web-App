@@ -1,23 +1,60 @@
-.countries {
+.container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    
     background-image: url('./planeta.jpeg');
     background-repeat: no-repeat;
     background-position:inherit;
     position:absolute;
     background-size: cover;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    
+}
+
+    
+
+.countries {
+    grid-area: 1 / 2 / 4 / 6;
+    display: flex;
+    justify-items: self-start;
+    align-items: center;
+    justify-content: inherit;
+    position: absolute;
+    
+    
+
+
 }
 
 .boton{
     
-    grid-column: 2/4;
-    grid-row: 5;
-    
+    grid-area:4 / 2 / 5 / 5;
 }
 
 .boton button{
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    color: white;
+    border-color: goldenrod;
+    font-family: OpenSans;
+    border-radius: 5px;
+    box-shadow: 0px 3px 0px rgba(218, 165, 32, 0.623);
+    padding: 3px;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+}
+.boton button:hover{
+    color: white;
     background-color: goldenrod;
+}
+
+.nav{
+    grid-area: 1 / 1 / 5 / 2;
+    
 }
