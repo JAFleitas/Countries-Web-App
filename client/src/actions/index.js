@@ -11,6 +11,8 @@ export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
 export const LOADING = 'LOADING'
 export const ORDER_CONTINENT = 'ORDER_CONTINENT'
+export const ACTIVITIES = 'ACTIVITIES'
+export const FILTER_ACTIVITY = 'FILTER_ACTIVITY'
 
 export const get_countries =  (name) =>{
     return async (dispatch)=>{
@@ -104,6 +106,22 @@ export const order_continent = payload =>{
 export const loadingPage = payload=>{
     return {
         type: LOADING,
+        payload
+    }
+}
+
+export const get_activities = () =>{
+     return async dispatch =>{
+         const activities = await axios.get('http://localhost:3001/activity')
+         dispatch({
+             type:ACTIVITIES,
+             payload:activities.data
+         })
+     }
+}
+export const filter_activity = payload =>{
+    return {
+        type: FILTER_ACTIVITY,
         payload
     }
 }

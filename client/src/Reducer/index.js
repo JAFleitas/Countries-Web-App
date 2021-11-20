@@ -1,11 +1,13 @@
-import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, NAME, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT } from '../actions'
+
+import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, NAME, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT, ACTIVITIES, FILTER_ACTIVITY } from '../actions'
 
 const initialState = {
     countries:[],
     countryDetail: {},
     name:'',
     filtro: null,
-    loading:false
+    loading:false,
+    activities:[]
 }
 
 const rootReducer= (state=initialState,{type , payload})=>{
@@ -62,6 +64,24 @@ const rootReducer= (state=initialState,{type , payload})=>{
             return {
                 ...state,
                 countries : state.countries.filter(e => e.continent === payload)
+            }
+        case ACTIVITIES:
+            return {
+                ...state,
+                activities: payload
+            }
+        case FILTER_ACTIVITY:
+            return {
+                ...state,
+                countries: state.countries.filter(e =>{
+                    if(e.activities!=false){
+                    for(let i = 0; i<e.activities.length;i++){
+                        if(e.activities[i].id==payload){
+                            
+                            return e
+                        }
+                    }}
+                })
             }
         default:
             return state

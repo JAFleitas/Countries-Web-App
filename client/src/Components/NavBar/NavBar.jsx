@@ -19,7 +19,9 @@ const NavBar = () => {
         <div>
             <div>
                 <input value = {namePais.name}
-                onChange = {e => handleChange(e)} />
+                onChange = {e => handleChange(e) 
+                } placeholder='Pais'
+                />
             </div>
 
             <div>

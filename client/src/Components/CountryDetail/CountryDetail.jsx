@@ -32,10 +32,11 @@ const CountryDetail = () =>{
 
 
                 <h2>Informacion: </h2>
-                <p>{name} esta ubicado en el continente {continent}, más concretamente en la sub-region {sub_region}, su capital es {capital}.
-                    {name} tiene una poblacion actual de {population} de personas y un area de {area} KM2
+                <p>{name} esta ubicado en el continente {continent}{sub_region? `, más concretamente en la sub-region ${sub_region} `:null} {capital==null? `, su capital es ${capital}`:null}.
+                {' '+name} tiene una poblacion actual de {population} de personas y un area de {area} KM2
                 
                 </p>
+                {console.log(capital)}
             </div>
 
             {renderActivity}

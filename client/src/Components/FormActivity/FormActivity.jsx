@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { validate } from "./utils";
+import {get_countries} from '../../actions'
 
 const Form = () =>{
     const [input, setInput] = useState({
@@ -16,12 +18,26 @@ const Form = () =>{
     
     const {difficulty, name, season, duration, paises, pais} = input
 
+    const [errors, setErrors] = useState({})
+
+    
+
+    //manejar los inputs
+
     const handleChange = e =>{
         e.preventDefault()
         setInput({...input,
         [e.target.name]: e.target.value})
+
+        setErrors(validate({...input,
+            [e.target.name]: e.target.value}))
+
+
     }
 
+
+
+    // funcion para agregar mas de un pais
     const AgregaPaises = () =>{
         //e.preventDefault()
         setInput({...input,
@@ -30,27 +46,46 @@ const Form = () =>{
     })
 
     }
+
+    //postea en la db la actividad
     const navigate = useNavigate()
     const postActivity = async e =>{
-        e.preventDefault()
-       try{
-            const res = await axios.post("http://localhost:3001/activity",{
-                name,
-                duration,
-                difficulty,
-                paises,
-                season})
         
-            return alert(res.data) && navigate('/home')
-        }catch(e){
-            console.log(e)
-        }
+    
+        e.preventDefault()
+        const res = await axios.post("http://localhost:3001/activity",{
+            name,
+            duration,
+            difficulty,
+            paises,
+            season
+        })
+    
+        return alert(res.data), navigate('/home')
+
     }
+
+
+    //remueve el pais del array 
     const removePais = (evento)=>{
         setInput({...input,
         paises: paises.filter(e => e !== evento.target.value)})
     }
-    
+
+
+    //boton para volver a Principal
+    const home = ()=>{
+        navigate('/home')
+    }
+
+    // uso un componetDidmount para tener siempre los paises en el state
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(get_countries())
+    },[])
+
+
+
 
     return (
         <div>
@@ -76,7 +111,7 @@ const Form = () =>{
                         <option value="Primavera">Primavera</option>
                     </select>
                 <br />
-                    <label>Duracion: </label>
+                    <label>Duracion (En minutos): </label>
                     <input name= 'duration' value= {duration} onChange={handleChange} />
                 <br />
                     <label>Paises: </label>
@@ -93,7 +128,9 @@ const Form = () =>{
                     })}
                 <br />
 
-                <button type='submit'>Add Activity</button>
+                <button type='submit' disabled={errors.name||errors.season
+                ||errors.duration||errors.difficulty||errors.paises}>Add Activity</button>
+                <button onClick={home}> Volver</button>
 
                 
             </form>

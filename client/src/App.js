@@ -12,13 +12,25 @@ import NavBar from './Components/NavBar/NavBar';
 function App() {
   return (
     <div className="App">
+      
+      <div>
       <Routes>
           <Route path='/' element={<Landing/>} />
           <Route path='/home' element={<Countries/>} />
           <Route path='/create_activity' element={<Form/>} />
           <Route path="/country/:id" element={<CountryDetail />}/>
-        
       </Routes>
+      </div>
+{/*       <div>
+      <Routes>
+      <Route path='/home' element={<NavBar/>} />
+      </Routes>
+      </div>
+       */}
+        
+          
+        
+      
     </div>
   );
 }

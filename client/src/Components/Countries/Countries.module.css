@@ -1,30 +1,32 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr) 4fr;
+    grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    
     background-image: url('./planeta.jpeg');
     background-repeat: no-repeat;
     background-position:inherit;
     position:absolute;
     background-size: cover;
-    height: auto;
+    height: 100%;
     width: 100%;
+    
     
 }
 
     
 
 .countries {
-    grid-area: 1 / 2 / 4 / 6;
+    grid-area: 1 / 2 / 4 / 6; 
     display: flex;
-    justify-items: self-start;
-    align-items: center;
-    justify-content: inherit;
-    position: absolute;
-    
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    align-items:flex-end;
+    align-content:stretch ;
+    margin-bottom: 10px;
+
     
 
 
@@ -32,7 +34,8 @@
 
 .boton{
     
-    grid-area:4 / 2 / 5 / 5;
+    grid-area: 6 / 2 / 7 / 4;
+    padding-top: 30px;
 }
 
 .boton button{

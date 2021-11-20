@@ -46,3 +46,17 @@ activities.post('/activity', async (req, res)=>{
 
 
 })
+
+
+activities.get('/activity', async (req, res)=>{
+    try {
+        const actividades = await Activity.findAll({
+            attribute:['id','name']
+            
+        })
+        res.json(actividades)
+    } catch (e) {
+        console.log(e)
+    }
+
+})

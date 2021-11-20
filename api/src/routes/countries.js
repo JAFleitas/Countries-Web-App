@@ -22,9 +22,10 @@ countries.get('/countries', async (req, res)=>{
 
         }else{
             const paises = await Country.findAll({
-                attributes: ['name', 'id', 'continent', 'flag', 'population']
+                attributes: ['name', 'id', 'continent', 'flag', 'population'],
+                include: Activity
             })
-            res.json(paises)
+            res.json(paises.sort((a,b) => a.name >= b.name ? 1 : -1))
         }
 
         
