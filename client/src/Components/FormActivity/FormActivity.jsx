@@ -92,7 +92,7 @@ const Form = () =>{
             <form onSubmit={postActivity}>
                 <h2>Agregar actividad</h2>
                 <label>Nombre: </label>
-                <input name= 'name' value= {name} onChange={handleChange} />
+                <input name= 'name' value= {name} onChange={handleChange} placeholder='Nombre' />
                 <br />
                     <label >Dificultad: </label>
                     <select name= 'difficulty'  onChange={handleChange}>
@@ -112,7 +112,7 @@ const Form = () =>{
                     </select>
                 <br />
                     <label>Duracion (En minutos): </label>
-                    <input name= 'duration' value= {duration} onChange={handleChange} />
+                    <input name= 'duration' value= {duration} onChange={handleChange} placeholder='Duración' />
                 <br />
                     <label>Paises: </label>
                     <select name="pais" onChange={handleChange} >

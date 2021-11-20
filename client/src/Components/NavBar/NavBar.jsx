@@ -15,12 +15,15 @@ const NavBar = () => {
         setNamePais ({name: e.target.value})
     }
 
+
+
+    
     return (
         <div>
             <div>
                 <input value = {namePais.name}
                 onChange = {e => handleChange(e) 
-                } placeholder='Pais'
+                } placeholder='Paises'
                 />
             </div>
 
