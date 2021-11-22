@@ -3,7 +3,7 @@ import axios from 'axios'
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_COUNTRIES_DETAIL = 'GET_COUNTRIES_DETAIL';
 
-export const NAME = 'NAME'
+
 export const ORDER_ASCENDENTE = 'ORDER_ASCENDENTE'
 export const ORDER_DESCENDENTE = 'ORDER_DESCENDENTE'
 export const CAMBIO_FILTRO= 'CAMBIO_FILTRO'
@@ -16,14 +16,19 @@ export const FILTER_ACTIVITY = 'FILTER_ACTIVITY'
 
 export const get_countries =  (name) =>{
     return async (dispatch)=>{
-        dispatch(loadingPage(true))
-        const paises = name? await axios.get(`http://localhost:3001/countries?name=${name}`):await axios(`http://localhost:3001/countries`)
-        
-        dispatch( {
-            type: GET_COUNTRIES,
-            payload: paises.data 
-        })
-        dispatch(loadingPage(false))
+        try {
+            dispatch(loadingPage(true))
+            const paises = name? await axios.get(`http://localhost:3001/countries?name=${name}`):await axios(`http://localhost:3001/countries`)
+            
+            dispatch( {
+                type: GET_COUNTRIES,
+                payload: paises.data 
+            })
+            dispatch(loadingPage(false))
+        } catch (e) {
+            dispatch(loadingPage(false))
+            alert(e)
+        }
     }
 
 
@@ -32,36 +37,30 @@ export const get_countries =  (name) =>{
 
 export const get_countries_detail =  (id) =>{
     return async (dispatch) => {
-        const pais = await axios(`http://localhost:3001/countries/${id}`)
+        try {
+            const pais = await axios(`http://localhost:3001/countries/${id}`)
         
-        dispatch({
-        type: GET_COUNTRIES_DETAIL,
-        payload: pais.data
-        })
-        dispatch(loadingPage(false))
+            dispatch({
+            type: GET_COUNTRIES_DETAIL,
+            payload: pais.data
+            })
+            dispatch(loadingPage(false))
+            console.log(pais)
+
+
+        } catch (e) {
+            console.log(e)
+            dispatch(loadingPage(false))
+            alert(e)
+        }
         
     }
 
 }
 
-/* export const post_activity =  (post)=>{
-    return async (dispatch) =>{
-        const resp = await axios.post('http://localhost:3001/activity', post)
-        dispatch({
-            type: POST_ACTIVITY,
-            payload: resp
-            
-        })
-    }
-} */
 
-export const name = payload =>{
-    return {
-        type:NAME,
-        payload
 
-    }
-}
+
 
 export const order_ascendente = () =>{
     return {

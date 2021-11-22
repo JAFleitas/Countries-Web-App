@@ -3,14 +3,17 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 300px;
-    height: 200px;
+    height: 180px;
     border-style: double;
     color: black;
     border-color: goldenrod;
     border-style: groove;
     border-radius: 8px;
     background-color:#ffe4b5c0;
-    margin-bottom: 10px;
+    margin: 10px;
+    box-shadow: 10px 10px 10px 10px #000;
+    transition: background 2s;
+    
     
    
 
@@ -22,6 +25,7 @@
     height: 100px;
     grid-column: 3;
     border-radius: 100px;
+    transition: border-radius 1s;
 }
 .country h2{
     display: flex;
@@ -42,4 +46,12 @@
 .container a{
     text-decoration: none;
     
+}
+
+.country img:hover{
+    border-radius: 0;
+}
+
+.country:hover{
+    background: linear-gradient(to bottom, #555, #222);
 }

@@ -1,0 +1,69 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content:space-between;
+    background-color: #444;
+    color:#fff;
+    font-family:monospace;
+    font-weight: 700;
+    background: linear-gradient(to bottom, #555, #222);
+}
+
+.input{
+    display: flex;
+    height: 40px;
+    padding-top: 10px;
+
+    
+
+    
+}
+
+.input header{
+
+    margin-right: 200px;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+    
+
+.input input{
+    margin-left: 100px;
+    width: 300px;
+    border-radius: 5px;
+    border-bottom:#086 solid 4px;
+    background: linear-gradient(to bottom, transparent, #666);
+    color:#fff;
+    font-size: 20px;
+    outline: none;
+    height: 20px;
+}
+.input input::placeholder{
+    color :#aaa;
+    font-family: sans-serif;
+}
+
+.actividad {
+    margin-right: 40px;
+    font-size: 20px;
+
+
+}
+.actividad button {
+    color:#fff;
+    background: linear-gradient(to bottom, transparent, #666);
+    border-radius: 5px;
+    border : none;
+    border-bottom:#086 solid 3px;
+    font-size: 20px;
+    font-family:monospace;
+    font-weight: 700;
+    width: max-content;
+}
+.actividad button:hover{
+    background: linear-gradient(to bottom, transparent, #ffe4b5c0);
+    color:#111;
+    border-bottom: rgba(218, 165, 32, 0.493) solid 3px;
+    font-weight: 700;
+}

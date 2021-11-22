@@ -3,28 +3,27 @@ import Country from "../Country/Country";
 import { useSelector, useDispatch } from 'react-redux'
 import { get_countries, loadingPage} from "../../actions";
 import style from './Countries.module.css'
-import Container from "../ContainerFilter/Container";
-import NavBar from "../NavBar/NavBar";
+import ContainerFilters from "../ContainerFilter/ContainerFilters";
+
 import Loading from "../loading/Loading";
 
 
 const Countries = () =>{
 
     const countries = useSelector(state => state.countries)
-    const namePais = useSelector(state => state.name)
-    const dispatch = useDispatch()
-    const filter = useSelector(state => state.filtro)
     
-
+    const dispatch = useDispatch()
+    // uso el filtro del estado global y un useEfect para poder volver a renderizar los paises, ya el que el sort solo ordena el array 
+    const filtro = useSelector(state=> state.filtro)
+    useState(()=> console.log(filtro),[filtro])
+    
+    
     useEffect(() => {
-        dispatch(get_countries(namePais))
+        dispatch(get_countries())
      
-    },[namePais])
+    },[])
 
-    useEffect( () => {
-        console.log('cambio el estado')
-    },[filter])
-
+    
    //PAGINADO
     const paisesPorPag = 10
     const [ numDePag, setNumDePag ] = useState(1)
@@ -67,29 +66,33 @@ const Countries = () =>{
     
     const loading = useSelector(state => state.loading)
     return (
-        <div>
-            <div className={style.container}>
-                {loading? (
-                    <div>
-                        <Loading/>
-                    </div>):
-                    (<div className={style.countries}>
-                        { display }
-                    </div>)}
-                
-                <div className={style.boton}>
-                    <button onClick={previousPage}>Anterior</button>
-                    {paginado.map(e =>{
-                        return <button onClick= {()=> buttonPage(e)}>{e}</button>
-                    })}
-                    <button onClick={nextPage}>Proximo</button>
+        <div className={style.container}>
+            <div className={style.subContainer}>
+                <div className={style.filtros}>
+
+                     <ContainerFilters/>
+
                 </div>
 
-                <div className={style.nav}>
-                    <NavBar />
+                <div className={style.containerCountries}>
+                    {
+                    loading? <Loading/> :  display 
+                    }
                 </div>
-                
             </div>
+            
+                
+            <div className={style.boton}>
+                    <button onClick={previousPage}>Anterior</button>
+                    {paginado.map(e =>{
+                        return <button className={numDePag===e?style.activo:null} key={e} onClick= {()=> buttonPage(e)}>{e}</button>
+                    })}
+                    <button onClick={nextPage}>Proximo</button>
+            </div>
+            
+
+                
+        
         </div>
     )
 }

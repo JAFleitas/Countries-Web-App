@@ -1,0 +1,14 @@
+.container{
+    display:inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap ;
+    align-items: center;
+    padding-left: 1px;
+}
+
+.activo{
+    background-color: goldenrod !important;
+}
+.activoTwo{
+    background-color: #014 !important;
+}

@@ -1,10 +1,9 @@
 
-import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, NAME, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT, ACTIVITIES, FILTER_ACTIVITY } from '../actions'
+import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT, ACTIVITIES, FILTER_ACTIVITY } from '../actions'
 
 const initialState = {
     countries:[],
     countryDetail: {},
-    name:'',
     filtro: null,
     loading:false,
     activities:[]
@@ -23,12 +22,6 @@ const rootReducer= (state=initialState,{type , payload})=>{
                 countryDetail:payload
             }
 
-        case NAME:
-            return {
-                ...state,
-                name: payload
-
-            }
         case ORDER_ASCENDENTE:
             return {
                 ...state,

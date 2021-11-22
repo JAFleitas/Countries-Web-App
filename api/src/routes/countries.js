@@ -17,7 +17,7 @@ countries.get('/countries', async (req, res)=>{
                 },
                 attributes: ['name', 'id', 'continent', 'flag', 'population']
             })
-            paisQuery==false? res.status(401).send('Pais no encontrado'):res.json(paisQuery)  
+            paisQuery==false? res.status(404).json({error:'Pais no encontrado'}):res.json(paisQuery)  
                    
 
         }else{

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.24.0",
+    "normalize.css": "^8.0.1",
     "redux-thunk": "^2.4.0"
   }
 }

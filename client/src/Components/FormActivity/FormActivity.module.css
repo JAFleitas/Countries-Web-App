@@ -1,0 +1,20 @@
+
+.container{
+    /* background-image:url('./flag_world.jpg') ;
+    background-repeat: no-repeat; */
+    background: #000;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    flex-flow: column wrap;
+    justify-content: space-around;
+}
+
+.form{
+    background: linear-gradient(to bottom, #555, #222);
+    width: 500px;
+    height: 400px;
+    border-radius: 5px;
+    align-self: center;
+    border-bottom: #086 solid 3px;
+}

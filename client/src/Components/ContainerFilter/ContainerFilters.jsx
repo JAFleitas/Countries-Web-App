@@ -9,7 +9,7 @@ import { filter_activity, get_activities, get_countries } from "../../actions";
 
 
 
-const Container = () =>{
+const ContainerFilters = () =>{
     useEffect(()=> {
         dispatch(get_activities())
     },[])
@@ -33,38 +33,45 @@ const Container = () =>{
         }
     }
     // limpiar los filtros 
-
+    
     const limpiarFiltros= ()=>{
         dispatch(get_countries())
+       
         
     }
+    
 
     
     return (
         <div className={style.container}>
             <div>
                 <h4> Ordenar por: </h4>
-                <Filters name = 'Poblacion' arrayFunction= {arrayPoblacion} />
-                <Filters name = 'Alfabeto' arrayFunction= {arrayAlfabeto} />
+                <Filters name = 'Poblacion' arrayFunction= {arrayPoblacion}  />
+                <Filters name = 'Alfabeto' arrayFunction= {arrayAlfabeto}  />
             </div>
 
             <div>
                 <h4>Filtrar por: </h4>
-                <div>
+                
+                <div className={ style.filtro }>
                     <label>Actividad</label>
                     <br/>
                     <select onChange={handleChange}>
-                        {actividades.map(e => <option value={e.id}>{e.name}</option>)}
+                        {actividades.map(e => <option key={e.id} value={e.id}>{e.name}</option>)}
                     </select>
+                
                     <button onClick={filterOnClick}>Filtrar</button>
                 </div>
-                <div>
+                <div className={ style.filtro }>
                     <label >Continente</label>
                     <br/>
                     <Filters name = 'Continente' arrayFunction= {arrayContinent} /> 
                 </div>
                 <br/>
-                <button onClick={limpiarFiltros}>Limpiar Filtros</button>
+                <div>
+                    <button onClick={limpiarFiltros}>Limpiar Filtros</button>
+                </div>
+                
                
                 
             </div>
@@ -79,5 +86,5 @@ const Container = () =>{
 
 }
 
-export default Container;
+export default ContainerFilters;
 

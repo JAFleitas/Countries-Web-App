@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { validate } from "./utils";
-import {get_countries} from '../../actions'
+import { get_countries } from '../../actions'
+import style from './FormActivity.module.css'
+
 
 const Form = () =>{
     const [input, setInput] = useState({
@@ -39,11 +41,13 @@ const Form = () =>{
 
     // funcion para agregar mas de un pais
     const AgregaPaises = () =>{
-        //e.preventDefault()
+        
+        if(input.pais){
         setInput({...input,
         paises:[...paises,pais],
         pais:''
-    })
+        })
+        }
 
     }
 
@@ -88,52 +92,78 @@ const Form = () =>{
 
 
     return (
-        <div>
-            <form onSubmit={postActivity}>
-                <h2>Agregar actividad</h2>
-                <label>Nombre: </label>
-                <input name= 'name' value= {name} onChange={handleChange} placeholder='Nombre' />
-                <br />
-                    <label >Dificultad: </label>
-                    <select name= 'difficulty'  onChange={handleChange}>
-                        <option value="1">Dificultad 1</option>
-                        <option value="2">Dificultad 2</option>
-                        <option value="3">Dificultad 3</option>
-                        <option value="4">Dificultad 4</option>
-                        <option value="5">Dificultad 5</option>
-                    </select>
-                <br />
-                    <label >Temporada: </label>
-                    <select name= 'season' onChange={handleChange}>
-                        <option value="Verano">Verano</option>
-                        <option value="Otoño">Otoño</option>
-                        <option value="Invierno">Invierno</option>
-                        <option value="Primavera">Primavera</option>
-                    </select>
-                <br />
-                    <label>Duracion (En minutos): </label>
-                    <input name= 'duration' value= {duration} onChange={handleChange} placeholder='Duración' />
-                <br />
-                    <label>Paises: </label>
-                    <select name="pais" onChange={handleChange} >
-                        {countries.map(e => {
-                            return <option value={e.id}>{e.name}</option>
-                        })}
-                    </select>
+        <div className={style.container}>
+            <div className={style.form}>
+                <form onSubmit={postActivity}>
+                    <div>
+                        <h2>Agregar actividad</h2>
+                        <label>Nombre: </label>
+                        <input name= 'name' value= {name} onChange={handleChange} placeholder='Nombre' />
+                        <br />
+                    </div>
+                    <div>
+                        <label >Dificultad: </label>
+                        <select name= 'difficulty'  onChange={handleChange}>
+                            <option value="1">Dificultad 1</option>
+                            <option value="2">Dificultad 2</option>
+                            <option value="3">Dificultad 3</option>
+                            <option value="4">Dificultad 4</option>
+                            <option value="5">Dificultad 5</option>
+                        </select>
+                    </div>
                     
-                    <button type='button' onClick={AgregaPaises}>Agregar</button>
-                <br />
-                    {paises.map(e => {
-                        return <button value={e}onClick={removePais}>{e}</button>
-                    })}
-                <br />
+                    <div>
+                        <br />
+                            <label >Temporada: </label>
+                            <select name= 'season' onChange={handleChange}>
+                                <option value="Verano">Verano</option>
+                                <option value="Otoño">Otoño</option>
+                                <option value="Invierno">Invierno</option>
+                                <option value="Primavera">Primavera</option>
+                            </select>
+                        <br />
 
-                <button type='submit' disabled={errors.name||errors.season
-                ||errors.duration||errors.difficulty||errors.paises}>Add Activity</button>
-                <button onClick={home}> Volver</button>
+                    </div>
 
-                
-            </form>
+                    <div>
+
+                        <label>Duracion (En minutos): </label>
+                    
+                        <input name= 'duration' value= {duration} onChange={handleChange} placeholder='Duración' />
+                        
+                    </div>
+
+                    <div>
+                        <label>Paises: </label>
+                            <select name="pais" onChange={handleChange} >
+                                {countries.map(e => {
+                                    return <option value={e.id}>{e.name}</option>
+                                })}
+                            </select>
+                            
+                            <button type='button' onClick={AgregaPaises}>Agregar</button>
+                        <br />
+                            {paises.map(e => {
+                                return <button value={e}onClick={removePais}>{e}</button>
+                            })}
+                        <br />
+
+                        
+                    </div>
+                    
+                     <div>
+                        <button type='submit' disabled={errors.name||errors.season
+                        ||errors.duration||errors.difficulty||errors.paises}>Add Activity</button>
+                        <button onClick={home}> Volver</button>
+
+                     </div>   
+                    
+                        
+                  
+                    
+                </form>
+            </div>
+            
         </div>
     )
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { get_countries_detail } from "../../actions";
 
 const CountryDetail = () =>{
@@ -24,6 +24,9 @@ const CountryDetail = () =>{
         )
     }):null
     
+    const navigate = useNavigate()
+
+
     return (
         <div>
             <div>
@@ -32,14 +35,14 @@ const CountryDetail = () =>{
 
 
                 <h2>Informacion: </h2>
-                <p>{name} esta ubicado en el continente {continent}{sub_region? `, más concretamente en la sub-region ${sub_region} `:null} {capital==null? `, su capital es ${capital}`:null}.
+                <p>{name} esta ubicado en el continente {continent} {sub_region? `, más concretamente en la sub-region ${sub_region}`:null} {capital==false? null:`, su capital es ${capital} `}.
                 {' '+name} tiene una poblacion actual de {population} de personas y un area de {area} KM2
                 
                 </p>
-                {console.log(capital)}
             </div>
 
             {renderActivity}
+            <button onClick={()=>navigate('/home')}>Volver</button>
         </div>
     )
 }

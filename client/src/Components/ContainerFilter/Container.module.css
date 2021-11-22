@@ -1,9 +1,41 @@
 .container{
-    background-color: grey;
+    
     height:100%;
-
+    background: linear-gradient(to bottom, #555, #222);
+    border-radius: 5px;
+    color: gold;
+    height: auto;
+    border: #111 solid 4px;
+    border-bottom: rgba(255, 217, 0, 0.644)  solid 4px;
+    border-left: none;
+    margin-top: 8px;
+    font-family:monospace;
+    font-size: x-large;
+    padding-bottom: 10px;
+    box-shadow: 10px 10px 10px  #000;
+    margin-right: 10px;
 }
 
-.container h4 {
-    color:white
+.container button, select{
+    border-radius: 5px;
+    background: linear-gradient(to bottom, transparent, #666);
+    font-family:monospace;
+    color: #fff;
 }
+.container button{
+    margin:5px; 
+    border-bottom: #222 solid 4px;
+}
+
+
+.container option{
+    background-color: #111;
+}
+
+.filtro button{
+    margin-top: 10px;
+}
+.filtro label{
+    font-size: 17px;
+}
+

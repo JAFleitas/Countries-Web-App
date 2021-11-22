@@ -8,10 +8,11 @@
     color: goldenrod;
     
     
+    
 }
 .container {
     display: flex;
-    background-color: #073d57;
+    /* background-color: #073d57; */
     
     justify-content: center;
     height: 720px;
