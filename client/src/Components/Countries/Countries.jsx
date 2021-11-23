@@ -6,6 +6,7 @@ import style from './Countries.module.css'
 import ContainerFilters from "../ContainerFilter/ContainerFilters";
 
 import Loading from "../loading/Loading";
+import Paginado from "../Paginado/Paginado";
 
 
 const Countries = () =>{
@@ -25,6 +26,10 @@ const Countries = () =>{
     const loading = useSelector(state => state.loading)
     
    //PAGINADO
+   const inicio = useSelector(state=> state.inicio)
+   const fin = useSelector(state=> state.fin)
+
+   /* 
     const paisesPorPag = 10
     const [ numDePag, setNumDePag ] = useState(1)
     const inicio = ( numDePag * paisesPorPag ) - paisesPorPag
@@ -46,7 +51,7 @@ const Countries = () =>{
 
     const createArr = num =>{
         const array = []
-        for(let i=1; i<=num ;i++){
+        for(let i= 1; i<=num ;i++){
             array.push(i)
 
         }
@@ -56,7 +61,7 @@ const Countries = () =>{
     const paginado = createArr(cantDePag)
 
     console.log(paginado)
-
+ */
     const display = countries.slice( inicio, fin ).map(c => <Country
         name ={c.name}
         flag={c.flag[1]} 
@@ -83,7 +88,7 @@ const Countries = () =>{
             </div>
             
                 
-            <div className={style.boton}>
+{/*             <div className={style.boton}>
 
                     <button onClick={previousPage}>Anterior</button>
 
@@ -94,8 +99,9 @@ const Countries = () =>{
                     })}
 
                     <button onClick={nextPage}>Proximo</button>
-            </div>
+            </div> */}
             
+           { <Paginado /> }
 
                 
         

@@ -1,0 +1,30 @@
+.boton{
+    padding-bottom: 30px;
+    padding-top: 10px;
+    
+    
+}
+
+.boton button{
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    color: white;
+    border-color: goldenrod;
+    font-family: OpenSans;
+    border-radius: 5px;
+    box-shadow: 0px 3px 0px rgba(218, 165, 32, 0.623);
+    padding: 3px;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+}
+.boton button:hover{
+    color: white;
+    background-color: goldenrod;
+}
+
+.activo{
+    background-color: goldenrod!important; 
+    }
+    

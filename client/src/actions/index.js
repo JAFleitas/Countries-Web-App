@@ -13,6 +13,9 @@ export const LOADING = 'LOADING'
 export const ORDER_CONTINENT = 'ORDER_CONTINENT'
 export const ACTIVITIES = 'ACTIVITIES'
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY'
+export const INICIO = 'INICIO'
+export const FIN = 'FIN'
+
 
 export const get_countries =  (name) =>{
     return async (dispatch)=>{
@@ -124,3 +127,21 @@ export const filter_activity = payload =>{
         payload
     }
 }
+
+
+export const paginado_inicio = payload =>{
+
+    return{
+        type:INICIO,
+        payload
+    }
+}
+
+export const paginado_fin = payload =>{
+
+    return{
+        type:FIN,
+        payload
+    }
+}
+

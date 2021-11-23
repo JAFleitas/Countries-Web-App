@@ -1,12 +1,14 @@
 
-import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT, ACTIVITIES, FILTER_ACTIVITY } from '../actions'
+import {GET_COUNTRIES, GET_COUNTRIES_DETAIL, ORDER_ASCENDENTE,ORDER_DESCENDENTE, CAMBIO_FILTRO, ORDER_AZ, ORDER_ZA, LOADING, ORDER_CONTINENT, ACTIVITIES, FILTER_ACTIVITY, INICIO, FIN } from '../actions'
 
 const initialState = {
     countries:[],
     countryDetail: {},
     filtro: null,
     loading:false,
-    activities:[]
+    activities:[],
+    inicio:0,
+    fin:10
 }
 
 const rootReducer= (state=initialState,{type , payload})=>{
@@ -76,6 +78,17 @@ const rootReducer= (state=initialState,{type , payload})=>{
                     }}
                 })
             }
+        case INICIO:
+            return {
+                ...state,
+                inicio: payload
+            }
+        case FIN:
+            return {
+                ...state,
+                fin: payload
+            }
+
         default:
             return state
     }
