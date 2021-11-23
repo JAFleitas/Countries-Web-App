@@ -113,13 +113,17 @@ export const loadingPage = payload=>{
 }
 
 export const get_activities = () =>{
-     return async dispatch =>{
-         const activities = await axios.get('http://localhost:3001/activity')
-         dispatch({
-             type:ACTIVITIES,
-             payload:activities.data
-         })
-     }
+    try {
+        return async dispatch =>{
+            const activities = await axios.get('http://localhost:3001/activity')
+            dispatch({
+                type:ACTIVITIES,
+                payload:activities.data
+            })
+        }
+    } catch (e) {
+        alert(e)
+    }
 }
 export const filter_activity = payload =>{
     return {

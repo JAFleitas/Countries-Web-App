@@ -40,8 +40,8 @@ const Form = () =>{
 
 
     // funcion para agregar mas de un pais
-    const AgregaPaises = () =>{
-        
+    const AgregaPaises = e =>{
+        e.preventDefault()
         if(input.pais){
         setInput({...input,
         paises:[...paises,pais],
@@ -64,6 +64,7 @@ const Form = () =>{
             paises,
             season
         })
+        console.log(res.data)
     
         return alert(res.data), navigate('/home')
 
@@ -149,7 +150,7 @@ const Form = () =>{
                                 })}
                             </select>
                             
-                            <button type='button' onClick={AgregaPaises}>Agregar</button>
+                            <button onClick={AgregaPaises}>Agregar</button>
                             <br />
                             {errors.paises?<h6>{errors.paises}</h6> : null }
                         <br />
