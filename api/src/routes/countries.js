@@ -25,7 +25,7 @@ countries.get('/countries', async (req, res)=>{
                 attributes: ['name', 'id', 'continent', 'flag', 'population'],
                 include: Activity
             })
-            res.json(paises.sort((a,b) => a.name >= b.name ? 1 : -1))
+            res.status(200).json(paises.sort((a,b) => a.name >= b.name ? 1 : -1))
         }
 
         
