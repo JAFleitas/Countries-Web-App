@@ -88,6 +88,9 @@ const Form = () =>{
         dispatch(get_countries())
     },[])
 
+    useEffect(()=>{
+        console.log(errors)
+    },[errors])
 
 
 
@@ -100,6 +103,7 @@ const Form = () =>{
                         <label>Nombre: </label>
                         <input name= 'name' value= {name} onChange={handleChange} placeholder='Nombre' />
                         <br />
+                        {errors.name?<h6>{errors.name}</h6> : null }
                     </div>
                     <div>
                         <label >Dificultad: </label>
@@ -110,6 +114,7 @@ const Form = () =>{
                             <option value="4">Dificultad 4</option>
                             <option value="5">Dificultad 5</option>
                         </select>
+                        {errors.difficulty?<h6>{errors.difficulty}</h6> : null }
                     </div>
                     
                     <div>
@@ -121,19 +126,21 @@ const Form = () =>{
                                 <option value="Invierno">Invierno</option>
                                 <option value="Primavera">Primavera</option>
                             </select>
+                            {errors.season?<h6>{errors.season}</h6> : null }
                         <br />
 
                     </div>
 
                     <div>
 
-                        <label>Duracion (En minutos): </label>
+                        <label>Duracion (en minutos): </label>
                     
                         <input name= 'duration' value= {duration} onChange={handleChange} placeholder='Duración' />
+                        {errors.duration?<h6>{errors.duration}</h6> : null }
                         
                     </div>
 
-                    <div>
+                    <div >
                         <label>Paises: </label>
                             <select name="pais" onChange={handleChange} >
                                 {countries.map(e => {
@@ -142,6 +149,8 @@ const Form = () =>{
                             </select>
                             
                             <button type='button' onClick={AgregaPaises}>Agregar</button>
+                            <br />
+                            {errors.paises?<h6>{errors.paises}</h6> : null }
                         <br />
                             {paises.map(e => {
                                 return <button value={e}onClick={removePais}>{e}</button>
@@ -151,9 +160,9 @@ const Form = () =>{
                         
                     </div>
                     
-                     <div>
-                        <button type='submit' disabled={errors.name||errors.season
-                        ||errors.duration||errors.difficulty||errors.paises}>Add Activity</button>
+                     <div className={style.addhome}>
+                        <button type='submit' disabled={errors.name ||errors.paises ||errors.season
+                        ||errors.duration||errors.difficulty}>Add Activity</button>
                         <button onClick={home}> Volver</button>
 
                      </div>   

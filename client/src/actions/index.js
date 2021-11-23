@@ -39,7 +39,7 @@ export const get_countries_detail =  (id) =>{
     return async (dispatch) => {
         try {
             const pais = await axios(`http://localhost:3001/countries/${id}`)
-        
+            
             dispatch({
             type: GET_COUNTRIES_DETAIL,
             payload: pais.data

@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    background-image: url('./flag_world.jpg');
+    background-repeat: no-repeat;
+    background-size: cover  ;
+    height: 100vh;
+    background-position: center;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    align-content: center;
+    
+}
+.info{
+    display: flex;
+    flex-flow: column wrap;
+    width: 350px;
+    background: linear-gradient(to bottom, transparent, #621);
+    font-size: 20px;
+    border-radius: 8px;
+    
+}
+.info div{
+    width: 300px;
+    align-self: center;
+}
+
+.container button{
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #222, #05a);
+    font-size: 20px;
+    color:#fff
+}
+.container button:hover{
+    background: linear-gradient(to bottom, #222,darkgoldenrod);
+}
+
+.actividad{
+    background: linear-gradient(to top, #558, #05a);
+    border-radius: 8px;
+    color: darkgoldenrod;
+    border: #000 solid 2px;
+    margin:10px
+}
+
+.contenedorAct{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.info p{
+    font-size: 20px;
+}
+.container button {
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+#titulo, #id{
+    -webkit-text-stroke: 2px black;
+}
