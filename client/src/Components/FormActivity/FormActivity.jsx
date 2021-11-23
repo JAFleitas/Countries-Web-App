@@ -72,6 +72,7 @@ const Form = () =>{
 
     //remueve el pais del array 
     const removePais = (evento)=>{
+        evento.preventDefault()
         setInput({...input,
         paises: paises.filter(e => e !== evento.target.value)})
     }
@@ -153,7 +154,7 @@ const Form = () =>{
                             {errors.paises?<h6>{errors.paises}</h6> : null }
                         <br />
                             {paises.map(e => {
-                                return <button value={e}onClick={removePais}>{e}</button>
+                                return <button type='button' value={e} onClick={removePais}>{e}</button>
                             })}
                         <br />
 

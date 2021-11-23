@@ -22,7 +22,7 @@ const Countries = () =>{
         dispatch(get_countries())
      
     },[])
-
+    const loading = useSelector(state => state.loading)
     
    //PAGINADO
     const paisesPorPag = 10
@@ -30,14 +30,6 @@ const Countries = () =>{
     const inicio = ( numDePag * paisesPorPag ) - paisesPorPag
     const fin = ( numDePag * paisesPorPag )
     const cantDePag = Math.ceil(countries.length / paisesPorPag)
-
-    const display = countries.slice( inicio, fin ).map(c => <Country
-        name ={c.name}
-        flag={c.flag[1]} 
-        continent= {c.continent} 
-        key={c.id}
-        id={c.id}
-    />)
 
     const previousPage = () =>{
        if( numDePag === 1) return
@@ -60,11 +52,20 @@ const Countries = () =>{
         }
         return array
     }
+
     const paginado = createArr(cantDePag)
 
     console.log(paginado)
+
+    const display = countries.slice( inicio, fin ).map(c => <Country
+        name ={c.name}
+        flag={c.flag[1]} 
+        continent= {c.continent} 
+        key={c.id}
+        id={c.id}
+    />)
     
-    const loading = useSelector(state => state.loading)
+    
     return (
         <div className={style.container}>
             <div className={style.subContainer}>
@@ -83,10 +84,15 @@ const Countries = () =>{
             
                 
             <div className={style.boton}>
+
                     <button onClick={previousPage}>Anterior</button>
+
                     {paginado.map(e =>{
-                        return <button className={numDePag===e?style.activo:null} key={e} onClick= {()=> buttonPage(e)}>{e}</button>
+
+                        return <button className={numDePag === e ? style.activo : null} key={e} onClick= {()=> buttonPage(e)}>{e}</button>
+
                     })}
+
                     <button onClick={nextPage}>Proximo</button>
             </div>
             

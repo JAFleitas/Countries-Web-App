@@ -55,7 +55,13 @@
 .container button {
     margin-left: auto;
     margin-bottom: 20px;
+    margin-top: auto;
 }
 #titulo, #id{
     -webkit-text-stroke: 2px black;
+}
+
+.info img{
+    height: 200px;
+    width: 350px;
 }
