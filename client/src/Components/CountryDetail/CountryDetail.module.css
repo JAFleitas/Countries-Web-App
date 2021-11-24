@@ -3,7 +3,7 @@
     background-image: url('./flag_world.jpg');
     background-repeat: no-repeat;
     background-size: cover  ;
-    height: 107vh;
+    height: 102vh;
     background-position: center;
     flex-flow: column wrap;
     align-items: center;

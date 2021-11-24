@@ -35,11 +35,17 @@
 
 .form input{
     background: linear-gradient(to bottom, #555, #111);
-    border-bottom: #035 solid 3px;
+    border :none;
+    border-bottom: #035 solid 2px;
     outline: none;
     color: #fff;
     border-radius: 5px;
 }
+.form input:hover{
+    border-bottom: #039 solid 2px;
+
+}
+
 .form input::placeholder{
     background: linear-gradient(to bottom, #555, #222);
     
@@ -49,7 +55,10 @@
     color:#222
 }
 .form select{
-    border-bottom: #035 solid 3px;
+    border-bottom: #035 solid 2px;
+}
+.form select:hover{
+    border-bottom: #039 solid 2px;
 }
 
 .form button{

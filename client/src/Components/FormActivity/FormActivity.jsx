@@ -42,7 +42,7 @@ const Form = () =>{
     // funcion para agregar mas de un pais
     const AgregaPaises = e =>{
         e.preventDefault()
-        if(input.pais){
+        if(input.pais && !input.paises.includes(input.pais)){
         setInput({...input,
         paises:[...paises,pais],
         pais:''
