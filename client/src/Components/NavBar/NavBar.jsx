@@ -36,9 +36,7 @@ const NavBar = () => {
                     <button>Crear Actividad</button>
                 </Link>
             </div>
-{/*             <div className={style.filtros}>
-                <Container/>
-            </div> */}
+
         </div>
     )
 }

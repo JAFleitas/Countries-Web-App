@@ -45,7 +45,7 @@ const Form = () =>{
         if(input.pais && !input.paises.includes(input.pais)){
         setInput({...input,
         paises:[...paises,pais],
-        pais:''
+        
         })
         }
 
@@ -53,20 +53,24 @@ const Form = () =>{
 
     //postea en la db la actividad
     const navigate = useNavigate()
+
     const postActivity = async e =>{
         
     
         e.preventDefault()
-        const res = await axios.post("http://localhost:3001/activity",{
-            name,
-            duration,
-            difficulty,
-            paises,
-            season
-        })
-        console.log(res.data)
-    
-        return alert(res.data), navigate('/home')
+
+        if (name && duration && difficulty && paises.length>=1 && season){
+            const res = await axios.post("http://localhost:3001/activity",{
+                name,
+                duration,
+                difficulty,
+                paises,
+                season
+            })
+        
+        
+            return alert(res.data), navigate('/home')
+        }
 
     }
 
@@ -92,7 +96,7 @@ const Form = () =>{
 
     useEffect(()=>{
         console.log(errors)
-    },[errors])
+    },[errors, input])
 
 
 
