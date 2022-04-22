@@ -13,10 +13,8 @@
 }
 
 body{
-    background-image: url('./planeta.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 80%;
+    background-color: #d0d0d0;
+    
 }
 @media (min-width: 800px) {
     body{
@@ -51,9 +49,9 @@ body{
 }
 
 .boton button{
-    background-color: rgba(0, 0, 0, 0);
+    background-color: white;
     font-size: 20px;
-    color: white;
+    color: #0a0a0a;
     border-color: goldenrod;
     font-family: OpenSans;
     border-radius: 5px;
@@ -83,4 +81,11 @@ body{
 
 .activo{
 background-color: goldenrod!important; 
+}
+
+@media (max-width : 720px){
+    .subContainer{
+        flex-direction: column;
+    }
+   
 }

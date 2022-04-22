@@ -19,7 +19,23 @@
 
 }
 
-
+@media (max-width:900px) {
+    .country {
+        width: 90%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+@media (max-width:500px) {
+    .country {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        margin-bottom: 20px;
+        border:none
+    }
+}
 .country img{
     width: 150px;
     height: 100px;

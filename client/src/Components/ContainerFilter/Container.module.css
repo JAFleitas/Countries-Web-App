@@ -39,4 +39,18 @@
 .filtro label{
     font-size: 17px;
 }
+@media (max-width : 900px) {
+    .container {
+        width: 350px
+    }
 
+}
+
+@media (max-width : 720px) {
+    .container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+}
