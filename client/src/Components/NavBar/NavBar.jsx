@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { get_countries } from "../../actions";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import style from "./NavBar.module.css";
 
@@ -19,7 +19,18 @@ const NavBar = () => {
 
   return (
     <div className={style.container}>
-      <header>Henry's Countries App</header>
+      <header>
+        <NavLink
+          style={{
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: "14px",
+          }}
+          to={"/"}
+        >
+          Henry's Countries App
+        </NavLink>
+      </header>
       <div className={style.input}>
         <input
           value={namePais.name}
