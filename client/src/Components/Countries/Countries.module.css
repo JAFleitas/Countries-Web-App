@@ -33,7 +33,7 @@ body{
     flex-wrap: wrap;
     align-items:flex-end;
     align-content:space-between ;
-    margin-bottom: 5px;
+    margin-top: -10px;
     width:100%;
     
     
@@ -73,7 +73,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: 82vh;
 }
 
 .filtros{

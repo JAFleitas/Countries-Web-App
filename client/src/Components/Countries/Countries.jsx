@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Country from "../Country/Country";
 import { useSelector, useDispatch } from 'react-redux'
-import { get_countries, loadingPage} from "../../actions";
+import { get_countries} from "../../actions";
 import style from './Countries.module.css'
 import ContainerFilters from "../ContainerFilter/ContainerFilters";
 

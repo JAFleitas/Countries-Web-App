@@ -92,12 +92,10 @@ const Form = () =>{
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(get_countries())
-    },[])
+        setErrors(validate(input))
+    },[input])
 
-    useEffect(()=>{
-        console.log(errors)
-    },[errors, input])
-
+    
 
 
     return (
@@ -150,7 +148,7 @@ const Form = () =>{
                         <label>Paises: </label>
                             <select name="pais" onChange={handleChange} >
                                 {countries.map(e => {
-                                    return <option value={e.id}>{e.name}</option>
+                                    return <option key={e.id} value={e.id}>{e.name}</option>
                                 })}
                             </select>
                             

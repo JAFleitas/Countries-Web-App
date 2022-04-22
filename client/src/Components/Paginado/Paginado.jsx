@@ -58,7 +58,7 @@ const Paginado = () =>{
 
             })}
 
-            <button onClick={nextPage}>Proximo</button>
+            <button onClick={nextPage}> Proximo </button>
         </div>
     )
 }

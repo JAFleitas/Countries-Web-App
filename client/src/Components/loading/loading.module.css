@@ -3,7 +3,7 @@
     background-image: url('Cargando.gif');
     background-repeat:no-repeat ;
     background-size:contain;
-    height: 539px;
+    height: 600px;
     width: 88vw;
     align-items: flex-end;
     justify-content: center;
@@ -21,7 +21,7 @@
     border-radius: 10px;
     
     justify-content: center;
-    height: 550px;
+    height: 600px;
     
   
 }

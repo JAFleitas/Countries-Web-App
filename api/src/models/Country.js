@@ -45,7 +45,11 @@ module.exports = (sequelize) => {
       type:DataTypes.ARRAY({type: DataTypes.STRING}),
        
 
+    },
+    maps:{
+      type:DataTypes.STRING,
     }
+
   },{
     timestamps:false 
   });

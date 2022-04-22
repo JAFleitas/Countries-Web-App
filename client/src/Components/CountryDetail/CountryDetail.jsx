@@ -14,7 +14,7 @@ const CountryDetail = () =>{
         
     },[])
     const info = useSelector(state => state.countryDetail)
-    const {id, name, continent, capital, sub_region, area, population, activities, flag} = info
+    const {id, name, continent, capital, sub_region, area, population, activities, maps} = info
     const renderActivity = activities? activities.map(e =>{
         return(
             <div className={style.actividad} key={e.id}>
@@ -45,10 +45,12 @@ const CountryDetail = () =>{
 
                 <h2>Informacion: </h2>
                 <div>
+                    {/* <a href={maps}>Mapa del Pais</a> */}
                     <p>{name} esta ubicado en el continente {continent} {sub_region? `,
                     más concretamente en la sub-region ${sub_region}`:null} {capital==false? null:`, su capital es ${capital} `}.
                     {' '+name} tiene una poblacion actual de {population} personas y un area de {area} KM2
                     </p>
+                    
                 </div>
                
             </div>
