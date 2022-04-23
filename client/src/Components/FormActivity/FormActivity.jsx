@@ -50,6 +50,7 @@ const Form = () =>{
         }
 
     }
+    const api = process.env.REACT_APP_API
 
     //postea en la db la actividad
     const navigate = useNavigate()
@@ -60,7 +61,7 @@ const Form = () =>{
         e.preventDefault()
 
         if (name && duration && difficulty && paises.length>=1 && season){
-            const res = await axios.post("http://localhost:3001/activity",{
+            const res = await axios.post(`${api}/activity`,{
                 name,
                 duration,
                 difficulty,
